@@ -19,27 +19,27 @@ class _MyApp extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: Colors.deepPurple[300],
-            appBar: AppBar(
-                title: Text("Event Scheduler",textScaleFactor: 1.3),
-                backgroundColor: Colors.deepPurple[800],
-              ),
-              body: ListView.builder(
-                itemCount: _list.length,
-                itemBuilder: ((context, index) => _list[index]),
-              ),
-              floatingActionButton: Builder(builder: (context) {
-                return FloatingActionButton(
-                  backgroundColor: Colors.deepPurple[800],
-                  onPressed: () async {
-                    String newText = await Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => NewEventScreen()));
-                    setState(() {
-                      _list.add(Text(newText));
-                    });
-                  },
-                  child: Icon(Icons.add),
-        );
-      }),
-    ));
+          appBar: AppBar(
+            title: Text("Event Scheduler",textScaleFactor: 1.3),
+            backgroundColor: Colors.deepPurple[800],
+          ),
+          body: ListView.builder(
+            itemCount: _list.length,
+            itemBuilder: ((context, index) => _list[index]),
+          ),
+          floatingActionButton: Builder(builder: (context) {
+            return FloatingActionButton(
+              backgroundColor: Colors.deepPurple[800],
+              onPressed: () async {
+                String newText = await Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => NewEventScreen()));
+                setState(() {
+                  _list.add(Text(newText));
+                });
+              },
+              child: Icon(Icons.add),
+            );
+          }),
+        ));
   }
 }
