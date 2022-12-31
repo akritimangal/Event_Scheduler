@@ -25,49 +25,38 @@ class _NewEventScreen extends State<NewEventScreen> {
           children: [
             Container(
               height: 60.0,
-
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Colors.deepPurple,
-
                 borderRadius: BorderRadius.circular(17.0),
               ),
-
-              child: TextFormField(
-                minLines: 1,
-                maxLines: 10,
-                keyboardType: TextInputType.multiline,
-                decoration: const InputDecoration(
-                  // border: UnderlineInputBorder(),
-                  labelText: "Event",
-                  labelStyle: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
-
-                  ),
-
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: Icon(
-                      Icons.calendar_today,
+              child: SingleChildScrollView(
+                child: TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  minLines: 1,
+                  maxLines: 10,
+                  // expands: true,
+                  textInputAction: TextInputAction.newline,
+                  controller: _textEditingController,
+                  decoration: const InputDecoration(
+                    // border: UnderlineInputBorder(),
+                    labelText: "Event",
+                    labelStyle: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(5.0),
+                      child: Icon(
+                        Icons.calendar_today,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-                controller: _textEditingController,
 
-                /*-----------------NOT WORKING -------------------------
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Event cannot be empty";
-                  }
-                  return null;
-                },
-                onChanged:(value){
-                  setState((){});
-                },
-                ---------------------------------------------------------------*/
+                ),
               ),
             ),
             const SizedBox(
@@ -87,26 +76,18 @@ class _NewEventScreen extends State<NewEventScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(60),
                         )),
-                    child: const Text("ADD",
+                    child: const Text(
+                      "ADD",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
                       ),
                     )),
               );
-            }
-            ),
+            }),
           ],
         ),
       ),
     );
   }
 }
-
-/*-------TO DO--------------------
-1)event text formfield can't get multiple line input--done
-2)textform field enclose in box--done
-3)main home page scrollable
-4)event in form of box
-5)event delete functionality
- */
