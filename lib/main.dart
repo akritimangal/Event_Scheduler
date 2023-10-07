@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyApp extends State<MyApp> {
-  final List<Widget> _list = [];
+  final List<String> _list = [];
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _MyApp extends State<MyApp> {
               String newText = await Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => NewEventScreen()));
               setState(() {
-                _list.add(Text(newText));
+                _list.add(newText);
               });
             },
             child: Icon(Icons.add),
